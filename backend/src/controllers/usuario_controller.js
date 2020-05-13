@@ -11,7 +11,6 @@ module.exports ={
       if(user = await (await connection('usuario')).find(u=> u.login_usuario === login)){
              return response.json(user);
             }
-        
        let error  = {err:"UserNotFound", errMsg:"O usuario não foi encontrado"}; 
        return response.json(error);
        
