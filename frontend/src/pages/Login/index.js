@@ -1,20 +1,51 @@
-import React from 'react'; 
-import './styles.css'; 
+import React, {useState} from 'react'  ;
+import { Link, useHistory } from 'react-router-dom';
+import './styles.css'
+
+import api from '../../services/api'
 
 export default function Login (){
-    return(
+   const [login_usuario, setLogin_usuario] = useState('');
+   const history = useHistory();
+
+   async function handleSubmit(e){
+     e.preventDefault();
+     
+     try{
+        const response = await api.post('login', {login_usuario});
+
+        localStorage.setItem('login_usuario');
+
+        history.push('/main');
+
+        console.log(response.data.login_usuario);
+
+     }
+     catch (err) {
+        alert('Falha ao autenticar, tente novamente.');
+     }
+          
+     console.log(login_usuario);
+   }
+  
+  return(
         <div className="login">
         <div className="login-form">
             <div className="form">
-                <form action="/paginas/dashboard.html">
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                       <label for="email">Email</label>
-                      <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu E-mail"/>
+                      <input type="text" className="form-control" 
+                        id="email" aria-describedby="emailHelp" 
+                        placeholder="Digite seu Username"
+                        value={login_usuario}
+                        onChange={e => setLogin_usuario(e.target.value)}/>
 
                     </div>
                     <div className="form-group">
                       <label for="senha">Senha</label>
-                      <input type="password" className="form-control" id="senha" placeholder="Senha"/>
+                      <input type="password" className="form-control" id="senha" placeholder="Senha"
+                      />
                     </div>
 
                     <button type="submit" className="btn"  > Login</button>
