@@ -1,14 +1,29 @@
-import React from 'react'; 
-import { BrowserRouter, Route} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Login from './pages/Login/index';
-import Main from './pages/Main/index';
+import Login from './paginas/Login';
+import Dashboard from './paginas/Dashboard';
+import CadastrarEvento from './paginas/CadastrarEvento';
+import CadastrarIngresso from './paginas/CadastrarIngresso';
+import MeusEventos from './paginas/MeusEventos';
+import MeusIngressos from './paginas/MeusIngressos';
+import Relatorios from './paginas/Relatorios';
 
-export default function Routes (){
-    return(
+
+export default function Routes(){
+    return (
         <BrowserRouter>
-            <Route path="/" exact component={Login}/>
-            <Route path="/home" component={Main}/>
+            <Switch>
+                
+                <Route path="/" exact component={Login} />
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/cadastrarevento" component={CadastrarEvento} />
+                <Route path="/cadastraringresso" component={CadastrarIngresso} />
+                <Route path="/meuseventos" component={MeusEventos} />
+                <Route path="/meusingressos" component={MeusIngressos} />
+                <Route path="/relatorios" component={Relatorios} />
+
+            </Switch>
         </BrowserRouter>
-    ); 
+    )
 }

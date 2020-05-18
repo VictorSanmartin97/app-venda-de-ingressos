@@ -1,0 +1,83 @@
+.login{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color:#EFEFEF;
+}
+.login-form {
+    width: 50%; /*largura*/
+    height: 100%; /*altura*/
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*alinhamento na horizontal*/
+    justify-content: center;
+}
+
+.banner-login{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.formulario button {
+    width: 100%;
+    height: 50px;
+    background-color: #00DF89;
+    border: none;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.formulario button:hover {
+    border: none;
+    color: #ffffff;
+    transform: scale(1.02);
+    transition: .2s;
+}
+
+.formulario input {
+    width: 100%;
+    height: 50px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 900px){
+    .login{
+        width: 100%;
+        flex-direction: column; /*faz com que as div fiquem uma em cima e a outra abaixo*/
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-form{
+        width: 100%;
+    }
+
+    .formulario{
+     width: 80%;
+     padding: 0px;
+    }
+
+    .banner-login h4 {
+        font-size: 12px;
+        text-align: center;
+    }
+    
+
+
+}
