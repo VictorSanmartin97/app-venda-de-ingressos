@@ -1,4 +1,5 @@
 import 'package:engenharia_software/screens/evento_screen.dart';
+import 'package:engenharia_software/util/Utils.dart';
 import 'package:flutter/material.dart';
 
 class EventosScreen extends StatelessWidget {
@@ -40,13 +41,13 @@ class EventosScreen extends StatelessWidget {
                         ));
                       },
                       child: Container(
-                          decoration: getBorderRadius(),
+                          decoration: Utils.getBorderRadius(),
                           child: Column(
                             children: <Widget>[
                               Stack(
                                 children: <Widget>[
                                   Container(
-                                      decoration: getBorderRadius(),
+                                      decoration: Utils.getBorderRadius(),
                                       child: Image.network(
                                           'https://admin.eventos365.com.br/upload/event/8761/thumbnail_img.png')),
                                   Positioned(
@@ -55,7 +56,7 @@ class EventosScreen extends StatelessWidget {
                                       child: Container(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 10, vertical: 5),
-                                        decoration: getBorderRadius(
+                                        decoration: Utils.getBorderRadius(
                                             color: Color.fromRGBO(
                                                 255, 255, 255, 0.8)),
                                         child: Text(
@@ -67,7 +68,7 @@ class EventosScreen extends StatelessWidget {
                               ),
                               Container(
                                 padding: EdgeInsets.all(15),
-                                decoration: getBorderRadius(),
+                                decoration: Utils.getBorderRadius(),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -104,11 +105,5 @@ class EventosScreen extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  BoxDecoration getBorderRadius({Color color = Colors.white}) {
-    return new BoxDecoration(
-        color: color,
-        borderRadius: new BorderRadius.all(const Radius.circular(5.0)));
   }
 }
