@@ -1,9 +1,9 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('ingresso', function (table) {
+    return knex.schema.createTable('ingressos', function (table) {
         table.increments('id_ingresso').primary();
         table.integer('id_evento');
-        table.integer('qtde_ingressos').notNullable();
+        table.integer('qtde_ingresso').notNullable();
         table.float('valor_ingresso').notNullable();
         table.enu('tipo_ingresso', ['VIP','Camarote']).notNullable(); 
 
@@ -12,5 +12,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('ingresso');
+    return knex.schema.dropTable('ingressos');
 };
