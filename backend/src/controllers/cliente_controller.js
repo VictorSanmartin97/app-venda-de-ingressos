@@ -5,11 +5,10 @@ module.exports = {
     
     async index (request, response) {
         const clientes = await connection('cliente').select('*');
-    
-        console.log(cli);
+
         console.log(clientes);
     
-        return response.json(cli);
+        return response.json(clientes);
     },
     
     async create(request, response) {
