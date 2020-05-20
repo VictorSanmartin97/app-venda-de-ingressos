@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:engenharia_software/screens/eventos_screen.dart';
+import 'package:engenharia_software/screens/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: EventosScreen(),
+      home: Login(),
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:engenharia_software/screens/evento_screen.dart';
 import 'package:engenharia_software/util/Utils.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class EventosScreen extends StatelessWidget {
   @override
@@ -36,64 +37,73 @@ class EventosScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context)=>EventoScreen(nextEvents.elementAt(index))
-                        ));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    EventoScreen(nextEvents.elementAt(index))));
                       },
                       child: Container(
-                          decoration: Utils.getBorderRadius(),
-                          child: Column(
-                            children: <Widget>[
-                              Stack(
+                        decoration: Utils.getBorderRadius(),
+                        child: Column(
+                          children: <Widget>[
+                            Stack(
+                              children: <Widget>[
+                                Container(
+                                    height: 180,
+                                    decoration: Utils.getBorderRadius(),
+                                    child: FadeInImage.memoryNetwork(
+                                      fit: BoxFit.cover,
+                                      
+                                      height: 180,
+                                      placeholder: kTransparentImage,
+                                      image:
+                                          'https://admin.eventos365.com.br/upload/event/8761/thumbnail_img.png',
+                                    )),
+                                Positioned(
+                                    top: 15,
+                                    left: 15,
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 5),
+                                      decoration: Utils.getBorderRadius(
+                                          color: Color.fromRGBO(
+                                              255, 255, 255, 0.8)),
+                                      child: Text(
+                                        nextEvents.elementAt(index)['nome'],
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ))
+                              ],
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(15),
+                              decoration: Utils.getBorderRadius(),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
-                                  Container(
-                                      decoration: Utils.getBorderRadius(),
-                                      child: Image.network(
-                                          'https://admin.eventos365.com.br/upload/event/8761/thumbnail_img.png')),
-                                  Positioned(
-                                      top: 15,
-                                      left: 15,
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10, vertical: 5),
-                                        decoration: Utils.getBorderRadius(
-                                            color: Color.fromRGBO(
-                                                255, 255, 255, 0.8)),
-                                        child: Text(
-                                          nextEvents.elementAt(index)['nome'],
-                                          style: TextStyle(fontSize: 16),
-                                        ),
-                                      ))
+                                  Text(
+                                    "Data: " +
+                                        nextEvents.elementAt(index)['dia'],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    "Valor: " +
+                                        nextEvents.elementAt(index)['valor'],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                        color: Colors.green),
+                                  )
                                 ],
                               ),
-                              Container(
-                                padding: EdgeInsets.all(15),
-                                decoration: Utils.getBorderRadius(),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      "Data: " +
-                                          nextEvents.elementAt(index)['dia'],
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      "Valor: " +
-                                          nextEvents.elementAt(index)['valor'],
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16,
-                                          color: Colors.green),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                            )
+                          ],
                         ),
+                      ),
                     );
                   },
                   separatorBuilder: (context, index) {
