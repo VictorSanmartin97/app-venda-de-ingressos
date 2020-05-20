@@ -23,6 +23,7 @@ class Login extends StatelessWidget {
                   height: 30,
                 ),
                 TextField(
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       hintText: "CPF",
                       isDense: true,
