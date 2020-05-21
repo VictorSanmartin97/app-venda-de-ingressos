@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+/*pára que dentro deles consiga setar elementos em %*/
+html, body {
+
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font: 400 15px Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased; /*melhora a visualização da fonte no google Crhome*/
+}
+
+input, button, textarea{
+    font: 400 15px Roboto, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+form input {
+    width: 100%;
+    height: 40px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 20px;
+}
+
+.dashboard header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color:#00DF89;
+    padding: 10px 20px;
+}
+
+.dashboard header a {
+    text-decoration: none;
+    color: white;
+}
+
+.dashboard header a  > svg {
+    color: white;
+    font-size: 15px;
+}
+
+div.dashboard {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+}
+
+sidebar {
+    display: block;
+    height: 100%;
+    width: 250px;
+    background-color: #ffffff;
+
+}
+
+sidebar .sidebar-logo {
+    display: flex;
+    height: 70px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #00DF89;
+}
+
+sidebar .sidebar-logo img {
+    height: 60px;
+}
+
+
+
+div.menu ul{
+    list-style-type: none;
+}
+
+div.menu ul li {
+    padding: 20px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+div.menu ul li svg{
+    color: #828282;
+    font-size: 15px;
+}
+
+div.menu ul li a {
+    color: #828282;
+    margin-left: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+div .conteudo {
+    height: 100vh;
+    padding-top: 30px;
+}
+
+main {
+    display: block;
+    height: 100%;
+    width: calc(100% - 250px);
+    background-color: #EFEFEF;
+
+}
+

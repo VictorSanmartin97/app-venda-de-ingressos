@@ -17,11 +17,11 @@ module.exports ={
             var userRecovered = await (await connection('usuario')).find(u => user.login === u.login_usuario)
                 if (user.senha  ===  userRecovered.senha_usuario){
                     const accessToken = generateAccessToken(user)
-                    response.json({ accessToken: accessToken})
+                    response.json({ accessToken: accessToken}).cookie('token', accessToken, { httpOnly: true }).send();  
                 }
                 else{response.status(401).send()}
         } catch (e) {
-            response.status(404).send(e);
+            response.status(404).send();
         }
     }
 }
