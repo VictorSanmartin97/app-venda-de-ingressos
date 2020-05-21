@@ -62,7 +62,7 @@ export default function Login(){
                     </div>
                     
                     <button type="submit" className="btn"  > Login</button>
-                    <Link to="/dashboard"> Passar para Dashboard (link de teste) </Link>
+                   
                   </form>
             </div>
         </div>
