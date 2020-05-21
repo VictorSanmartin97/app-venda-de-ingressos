@@ -14,12 +14,12 @@ html, body {
 }
 
 body {
-    font: 400 14px Roboto, sans-serif;
+    font: 400 15px Roboto, sans-serif;
     -webkit-font-smoothing: antialiased; /*melhora a visualização da fonte no google Crhome*/
 }
 
 input, button, textarea{
-    font: 400 18px Roboto, sans-serif;
+    font: 400 15px Roboto, sans-serif;
 }
 
 button {
@@ -111,6 +111,7 @@ div.menu ul li a {
 
 div .conteudo {
     height: 100vh;
+    padding-top: 30px;
 }
 
 main {
@@ -120,3 +121,4 @@ main {
     background-color: #EFEFEF;
 
 }
+
