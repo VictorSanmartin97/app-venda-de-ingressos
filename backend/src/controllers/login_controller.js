@@ -1,15 +1,31 @@
-const connection = require('../database/connection');
+require('dotenv').config();
 
-module.exports = {
-    
-    async create (request, response) {
-        const {id} = request.body;
 
-        // if(user = await (await connection('usuario')).find(u=> u.login_usuario === login)){
-        //     return response.json(user);
-        // }
+const connection = require('../database/connection'); 
 
-        let error  = {err:"UserNotFound", errMsg:"O usuario não foi encontrado"}; 
-        return response.json(error);
+const crypto = require('crypto');
+
+const jwt = require('jsonwebtoken')
+
+let refreshTokens = []
+
+module.exports ={
+
+    async login(request,response){
+        var user  = request.body
+        try {
+            var userRecovered = await (await connection('usuario')).find(u => user.login === u.login_usuario)
+                if (user.senha  ===  userRecovered.senha_usuario){
+                    const accessToken = generateAccessToken(user)
+                    response.json({ accessToken: accessToken})
+                }
+                else{response.status(401).send()}
+        } catch (e) {
+            response.status(404).send(e);
+        }
     }
 }
+
+function generateAccessToken(user) {
+    return jwt.sign(user,process.env.TOKEN_SECRET, { expiresIn: '1d' });
+  }
