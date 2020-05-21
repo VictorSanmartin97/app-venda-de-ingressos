@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './styles.css';
 import logoImg from '../../imagens/logo-preto.png';
 import Cookies from 'universal-cookie';
@@ -9,6 +9,8 @@ import api from '../../services/api';
 const cookies = new Cookies();
 
 export default function Login(){
+
+
     const [login, setLogin_usuario] = useState('');
     const [senha, setSenha_usuario] = useState('');
   
@@ -17,17 +19,18 @@ export default function Login(){
 
       try {
         const response = await api.post('login', { login, senha });
-
+        
         //console.log(response.data.accessToken);
-
+        
         cookies.set('token', response.data.accessToken, { path: '/' });
-        //console.log(cookies.get('token')); 
-
+        console.log(cookies.get('token')); 
+        
       }
       catch (err){
         alert( 'Falhouu'); 
       }
     }
+
 
 
     return (
@@ -59,7 +62,6 @@ export default function Login(){
                     <button type="submit" className="btn"  > Login</button>
                     <Link to="/dashboard"> Passar para Dashboard (link de teste) </Link>
                   </form>
-                  
             </div>
         </div>
         <div className="banner-login">

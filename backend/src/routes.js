@@ -9,7 +9,7 @@ const usuario_controller = require('./controllers/usuario_controller');
 const routes = express.Router();
 
 
-routes.get('/cliente', cliente_controller.index);
+//routes.get('/cliente', cliente_controller.index);
 routes.post('/cliente', cliente_controller.create);
 routes.delete('/cliente:id', cliente_controller.delete);
 
