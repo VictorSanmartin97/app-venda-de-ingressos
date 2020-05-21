@@ -3,7 +3,13 @@ const crypto = require('crypto');
 
 
 module.exports ={
+  async index (request, response) {
+    const usuarios = await connection('usuario').select('*');
 
+    console.log(usuarios);
+
+    return response.json(usuarios);
+},
     async getByLogin(request, response){
       const {login} = request.body;
       let user;
