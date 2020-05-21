@@ -7,9 +7,12 @@ import logoImg from '../../imagens/logo-branco.png';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import './styles.css';
+import Cookies from 'universal-cookie';
 library.add(fas);
+const cookies = new Cookies();
 
 export default function Dashboard(){
+
     const [selectDateIn, setSelectDateIn] = useState(new Date());
     const [selectDateOut, setSelectDateOut] = useState(new Date());
     return (
@@ -45,7 +48,7 @@ export default function Dashboard(){
             <main>
                 <header>
                     <Link to="/dashboard"> <FontAwesomeIcon icon="cog"/> Dashboard </Link>
-                    <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
+                    <Link to="/" onClick ={()=>console.log(cookies.remove('token',{ path :'/' }))}> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
                 <div className="conteudo">

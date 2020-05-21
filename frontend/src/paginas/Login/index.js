@@ -5,12 +5,13 @@ import logoImg from '../../imagens/logo-preto.png';
 import Cookies from 'universal-cookie';
 
 import api from '../../services/api';
+import { useHistory } from 'react-router-dom'
 
 const cookies = new Cookies();
 
 export default function Login(){
 
-
+    const history = useHistory();
     const [login, setLogin_usuario] = useState('');
     const [senha, setSenha_usuario] = useState('');
   
@@ -24,6 +25,7 @@ export default function Login(){
         
         cookies.set('token', response.data.accessToken, { path: '/' });
         console.log(cookies.get('token')); 
+        history.push('/dashboard')
         
       }
       catch (err){

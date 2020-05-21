@@ -4,6 +4,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import logoImg from '../../imagens/logo-branco.png';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 library.add(fas);
 
 export default function Dashboard(){
@@ -40,7 +42,7 @@ export default function Dashboard(){
             <main>
                 <header>
                     <Link to="/dashboard"> <FontAwesomeIcon icon="cog"/> Dashboard </Link>
-                    <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
+                    <Link to="/" onClick ={()=>console.log(cookies.remove('token',{ path :'/' }))}> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
                 <div class="conteudo">
