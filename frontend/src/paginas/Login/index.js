@@ -13,12 +13,12 @@ export default function Login(){
                 <form>
                     <div className="form-group">
                       <label for="email">Email</label>
-                      <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu E-mail"/>
+                      <input type="email" className="email" id="email" aria-describedby="emailHelp" placeholder="Digite seu E-mail"/>
                     
                     </div>
                     <div className="form-group">
                       <label for="senha">Senha</label>
-                      <input type="password" className="form-control" id="senha" placeholder="Senha"/>
+                      <input type="password" className="senha" id="senha" placeholder="Senha"/>
                     </div>
                     
                     <button type="submit" className="btn"  > Login</button>
