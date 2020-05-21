@@ -25,7 +25,6 @@ export default function Routes(){
                 <Route path="/meusingressos" component={MeusIngressos} />
                 <Route path="/relatorios" component={Relatorios} />
 
-
             </Switch>
         </BrowserRouter>
     )

@@ -1,22 +1,30 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './styles.css';
 import logoImg from '../../imagens/logo-preto.png';
+import Cookies from 'universal-cookie';
 
 import api from '../../services/api';
 
+const cookies = new Cookies();
+
 export default function Login(){
-    const [login_usuario, setLogin_usuario] = useState('');
-    const [senha_usuario, setSenha_usuario] = useState('');
+
+
+    const [login, setLogin_usuario] = useState('');
+    const [senha, setSenha_usuario] = useState('');
   
     async  function handleLogin (e){
       e.preventDefault();
 
       try {
-        const response = await api.post('login', { login_usuario, senha_usuario });
-
-        console.log(response.data.login_usuario);
-
+        const response = await api.post('login', { login, senha });
+        
+        //console.log(response.data.accessToken);
+        
+        cookies.set('token', response.data.accessToken, { path: '/' });
+        console.log(cookies.get('token')); 
+        
       }
       catch (err){
         alert( 'Falhouu'); 
@@ -36,7 +44,7 @@ export default function Login(){
                         id="email" 
                         aria-describedby="emailHelp" 
                         placeholder="Digite seu E-mail"
-                        value={login_usuario}
+                        value={login}
                         onChange={e => setLogin_usuario(e.target.value)}/>
                     
                     </div>
@@ -46,14 +54,13 @@ export default function Login(){
                         className="senha" 
                         id="senha" 
                         placeholder="Senha"
-                        value={senha_usuario}
+                        value={senha}
                         onChange={e => setSenha_usuario(e.target.value)}/>
                     </div>
                     
                     <button type="submit" className="btn"  > Login</button>
                     <Link to="/dashboard"> Passar para Dashboard (link de teste) </Link>
                   </form>
-                  
             </div>
         </div>
         <div className="banner-login">
