@@ -9,8 +9,8 @@ module.exports ={
     console.log(usuarios);
 
     return response.json(usuarios);
-},
-    async getByLogin(request, response){
+  },
+  async getByLogin(request, response){
       const {login} = request.body;
       let user;
 
@@ -23,17 +23,20 @@ module.exports ={
     },
 
     async create(request, response) {
-      const {id_cliente, login_usuario, senha_usuario, is_admin } = request.body;
-      
-      const data_cadastro = new Date();      
-  
-      const [id_usuario] = await connection('usuario').insert({        
-        id_cliente,
+      const {login_usuario, senha_usuario, data_cadastro, is_admin } = request.body;   
+      const x = request.body.login_usuario;
+
+      console.log(x);
+      const id_usuario = crypto.randomBytes(4).toString('HEX');
+
+
+      await connection('usuario').insert({        
+        id_usuario,
         login_usuario,
         senha_usuario,
         data_cadastro,
         is_admin,
-      })
+      });
       
       
       return response.json({id_usuario});

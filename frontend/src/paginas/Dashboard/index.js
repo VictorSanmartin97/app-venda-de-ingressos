@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,9 @@ import logoImg from '../../imagens/logo-branco.png';
 library.add(fas);
 
 export default function Dashboard(){
+    
+    const user = localStorage.getItem('username');
+    
     return (
         <div className="dashboard">
             <sidebar>
@@ -43,8 +46,8 @@ export default function Dashboard(){
                     <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
-                <div class="conteudo">
-                    <p>Dashboard</p>
+                <div className="conteudo">
+                    <p>`Dashboard ${user}</p>
                 </div>
             </main>
         </div>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import './styles.css';
 import logoImg from '../../imagens/logo-preto.png';
 import Cookies from 'universal-cookie';
@@ -13,6 +13,7 @@ export default function Login(){
 
     const [login, setLogin_usuario] = useState('');
     const [senha, setSenha_usuario] = useState('');
+    const history = useHistory('');
   
     async  function handleLogin (e){
       e.preventDefault();
@@ -24,10 +25,12 @@ export default function Login(){
         
         cookies.set('token', response.data.accessToken, { path: '/' });
         console.log(cookies.get('token')); 
+
+        history.push('/dashboard');
         
       }
       catch (err){
-        alert( 'Falhouu'); 
+        alert('Usuário e/ou senha incorretos, tente novamente.'); 
       }
     }
 
@@ -38,12 +41,12 @@ export default function Login(){
             <div className="formulario">
                 <form onSubmit={handleLogin}>
                     <div className="form-group">
-                      <label for="email">Email</label>
+                      <label for="email">Login</label>
                       <input type="text"
                         className="email" 
                         id="email" 
                         aria-describedby="emailHelp" 
-                        placeholder="Digite seu E-mail"
+                        placeholder="Digite seu Login"
                         value={login}
                         onChange={e => setLogin_usuario(e.target.value)}/>
                     
@@ -59,7 +62,8 @@ export default function Login(){
                     </div>
                     
                     <button type="submit" className="btn"  > Login</button>
-                    <Link to="/dashboard"> Passar para Dashboard (link de teste) </Link>
+                    {/* <Link to="/dashboard"> Passar para Dashboard (link de teste) </Link> */}
+                    <Link to="/cadastrarusuario"> Não possui cadastro? Clique aqui.</Link>
                   </form>
             </div>
         </div>
