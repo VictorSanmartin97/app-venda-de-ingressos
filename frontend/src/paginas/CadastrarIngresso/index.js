@@ -38,6 +38,9 @@ export default function Dashboard(){
                         <li>
                             <Link to="/relatorios"> <FontAwesomeIcon icon="flag-checkered"/> Relatórios </Link>
                         </li>
+                        <li>
+                            <Link to="/usuarios"> <FontAwesomeIcon icon="user"/> Usuários </Link>
+                        </li>
                         
                     </ul>
                 </div>

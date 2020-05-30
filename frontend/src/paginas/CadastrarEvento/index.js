@@ -80,6 +80,9 @@ class CadastraEvento extends Component {
                         <li>
                             <Link to="/relatorios"> <FontAwesomeIcon icon="flag-checkered"/> Relatórios </Link>
                         </li>
+                        <li>
+                            <Link to="/usuarios"> <FontAwesomeIcon icon="user"/> Usuários </Link>
+                        </li>
                         
                     </ul>
                 </div>
@@ -95,7 +98,7 @@ class CadastraEvento extends Component {
                         <form>
                             <div className="cadastro">
                                 <div className="box-cadastro">
-                                <h1><FontAwesomeIcon icon="external-link-square-alt"/> Cadastrando seu Ingresso</h1>
+                                <h1><FontAwesomeIcon icon="external-link-square-alt"/> Cadastrando seu Evento</h1>
                                 <p>Prencha as informações do seu ingresso.</p>
                                         <input type="text" placeholder="Nome do Evento" className="nomeEvento"/>
                                         <textarea rows="5" placeholder="Descrição do Evento" className="descEvento"/>
@@ -110,8 +113,9 @@ class CadastraEvento extends Component {
                                     { $imagePreview }
                                     <input type="file" name="avatar" onChange={this.fileChangedHandler} />
                                     {/* <button type="button" onClick={this.submit} > Upload </button>*/}
-                                   
-                                
+                                    <br/>
+                                    <br/>
+                                    <p>OBS: pensar numa forma de como controlar o ingresso por evento</p>
                                 </div>
                             </div>
                             <button type="submit" className="btn">Cadastrar Evento</button> 

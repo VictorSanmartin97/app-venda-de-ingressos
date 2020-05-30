@@ -8,7 +8,8 @@ import CadastrarIngresso from './paginas/CadastrarIngresso';
 import MeusEventos from './paginas/MeusEventos';
 import MeusIngressos from './paginas/MeusIngressos';
 import Relatorios from './paginas/Relatorios';
-
+import Usuarios from './paginas/Usuarios';
+import NovoUsuario from './paginas/NovoUsuario';
 
 export default function Routes(){
     return (
@@ -22,6 +23,8 @@ export default function Routes(){
                 <Route path="/meuseventos" component={MeusEventos} />
                 <Route path="/meusingressos" component={MeusIngressos} />
                 <Route path="/relatorios" component={Relatorios} />
+                <Route path="/usuarios" component={Usuarios} />
+                <Route path="/novousuarios" component={NovoUsuario} />
 
             </Switch>
         </BrowserRouter>
