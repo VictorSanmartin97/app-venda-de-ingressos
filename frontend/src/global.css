@@ -18,21 +18,23 @@ body {
     -webkit-font-smoothing: antialiased; /*melhora a visualização da fonte no google Crhome*/
 }
 
-input, button, textarea{
+input, button, textarea, select{
     font: 400 15px Roboto, sans-serif;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #828282;
+    
 }
 
 button {
     cursor: pointer;
 }
 
-form input {
+form input  {
     width: 100%;
     height: 40px;
-    color: #333;
-    border: 1px solid #dcdce6;
-    border-radius: 8px;
-    padding: 0 20px;
+    border: none;
 }
 
 .dashboard header {

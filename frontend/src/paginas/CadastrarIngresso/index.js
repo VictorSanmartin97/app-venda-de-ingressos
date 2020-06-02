@@ -38,6 +38,9 @@ export default function Dashboard(){
                         <li>
                             <Link to="/relatorios"> <FontAwesomeIcon icon="flag-checkered"/> Relatórios </Link>
                         </li>
+                        <li>
+                            <Link to="/usuarios"> <FontAwesomeIcon icon="user"/> Usuários </Link>
+                        </li>
                         
                     </ul>
                 </div>
@@ -54,11 +57,11 @@ export default function Dashboard(){
                         <p>Prencha as informações do seu ingresso.</p>
                          <form>
                             <div className="input-grupo">
-                                <input type="text" value="Nome do Ingresso" className="nomeIngresso" />
-                                <input type="text" value="Quantidade" className="qtd"/>
-                                <input type="text" value="Preço R$" className="preco"/>
+                                <input type="text" placeholder="Nome do Ingresso" className="nomeIngresso" />
+                                <input type="text" placeholder="Quantidade" className="qtd"/>
+                                <input type="text" placeholder="Preço R$" className="preco"/>
                             </div>
-                                <input type="text" value="Setor do Ingresso" className="setorIngresso"/>
+                                <input type="text" placeholder="Setor do Ingresso" className="setorIngresso"/>
                                 
                                 <div className="box-calendario">
                                         <div className="calendario-inicio">
