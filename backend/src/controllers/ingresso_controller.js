@@ -3,7 +3,7 @@ const crypto = require('crypto');
 
 module.exports = {
     async index (request, response) {
-        const ingressos = await connection('ingressos').select('*');   
+        const ingressos = await connection('ingresso').select('*');   
         
         console.log(ingressos);
     
@@ -15,7 +15,7 @@ module.exports = {
     
         //const id = crypto.randomBytes(4).toString('HEX');
     
-        const [id_ingresso] = await connection('ingressos').insert({        
+        const [id_ingresso] = await connection('ingresso').insert({        
             id_evento,
             nome_ingresso,
             valor_ingresso,
@@ -31,13 +31,13 @@ module.exports = {
     async delete(request, response) {
         const {id} = request.params;
          
-        const ingresso = await (await connection('ingressos').where('id_ingresso', id));
+        const ingresso = await (await connection('ingresso').where('id_ingresso', id));
 
         if(ingresso.id_ingresso != id){
             return response.status(401).json({error: 'Operação não é permitida'});
         }
 
-        const responses = await connection('ingressos').where('id_ingresso', id).delete();
+        const responses = await connection('ingresso').where('id_ingresso', id).delete();
         console.log(responses);
 
         return response.status(204).send();

@@ -5,16 +5,20 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import logoImg from '../../imagens/logo-branco.png';
+import DatePicker from 'react-datepicker';
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import pt from 'date-fns/locale/pt-BR';
+import 'react-datepicker/dist/react-datepicker.css'
 import './styles.css';
 library.add(fas);
     
-
+registerLocale('pt-BR', pt);
 export default function CadastraEvento (){    
 
     const [nome_evento, setNome_evento] = useState('');
     const [descricao_evento, setDescricao_evento] = useState('');
     const [tipo_evento, setTipo_evento] = useState('');   
-    const [hora_inicio, setHora_inicio] = useState('');   
+    const [hora_inicio, setHora_inicio] = useState(new Date());
 
     const history = useHistory('');
 
@@ -100,10 +104,21 @@ export default function CadastraEvento (){
                                             <option value="Show"> Show </option>
                                             <option value="Aniversário"> Aniversário </option>                                     
                                         </select>
-                                        <input type="text" placeholder="Hora de Inicio" 
-                                            className="hrInicioEvento"
-                                            value={hora_inicio}
-                                            onChange={e => setHora_inicio(e.target.value)}/>
+                                        <div className="box-calendario">
+                                            <div className="calendario-inicio">
+                                                <p>Data do Evento</p>
+                                                <DatePicker
+                                                selected={hora_inicio}
+                                                locale={pt}
+                                                onChange={date => setHora_inicio(date)}
+                                                showTimeSelect
+                                                timeFormat="HH:mm"
+                                                timeIntervals={15}
+                                                timeCaption="time"
+                                                dateFormat="dd-MM-yyyy hh:mm:ss a"
+                                                />
+                                            </div>
+                                        </div>
                                 </div>
                                 <div className="box-img">                                
                                 <div className="previewText image-container"></div>                             

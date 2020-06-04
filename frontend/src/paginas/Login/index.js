@@ -10,19 +10,19 @@ const cookies = new Cookies();
 
 export default function Login(){
 
-
     const [login, setLogin_usuario] = useState('');
     const [senha, setSenha_usuario] = useState('');
     const history = useHistory('');
   
-    async  function handleLogin (e){
+    async function handleLogin (e){
       e.preventDefault();
 
       try {
         const response = await api.post('login', { login, senha });
         
         //console.log(response.data.accessToken);
-        
+        localStorage.setItem('username', login);        
+
         cookies.set('token', response.data.accessToken, { path: '/' });
         console.log(cookies.get('token')); 
 

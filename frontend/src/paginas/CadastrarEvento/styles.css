@@ -34,6 +34,26 @@
     flex-direction: column;
   
 }
+
+.conteudo .box-evento .box-cadastro .box-calendario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  
+}
+
+.conteudo .box-evento .box-cadastro .box-calendario p {
+    margin-top: 20px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.conteudo .box-evento .box-cadastro .box-calendario .calendario-inicio{
+    display: flex;
+    flex-direction: row;
+}
+
 .conteudo .box-evento .box-img{
     padding: 15px;
     width: 100%;

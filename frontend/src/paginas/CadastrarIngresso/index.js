@@ -126,7 +126,7 @@ export default function Dashboard(){
                                             timeFormat="HH:mm"
                                             timeIntervals={15}
                                             timeCaption="time"
-                                            dateFormat="d MMMM, yyyy h:mm aa"
+                                            dateFormat="dd-MM-yyyy hh:mm:ss a"
                                             />
                                         </div>
                                         <div className="calendario-fim">
@@ -139,7 +139,7 @@ export default function Dashboard(){
                                             timeFormat="HH:mm"
                                             timeIntervals={15}
                                             timeCaption="time"
-                                            dateFormat="d MMMM, yyyy h:mm aa"
+                                            dateFormat="dd-MM-yyyy hh:mm:ss a"
                                             />
                                         </div>   
                                 </div>

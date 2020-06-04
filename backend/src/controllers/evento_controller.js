@@ -11,7 +11,7 @@ module.exports = {
     },
 
     async create(request, response) {
-        const {nome_evento, descricao_evento, tipo_evento} = request.body;
+        const {nome_evento, descricao_evento, tipo_evento, hora_inicio} = request.body;
     
         //const id = crypto.randomBytes(4).toString('HEX');
     
@@ -19,6 +19,7 @@ module.exports = {
             nome_evento,
             descricao_evento,
             tipo_evento,
+            hora_inicio,
         })
         
         return response.json({id_evento});

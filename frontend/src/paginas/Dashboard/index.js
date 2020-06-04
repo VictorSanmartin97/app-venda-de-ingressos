@@ -50,7 +50,7 @@ export default function Dashboard(){
 
                 </header>
                 <div className="conteudo">
-                    <p>`Dashboard ${user}</p>
+                    <p>Seja bem-vindo, {user}</p>
                 </div>
             </main>
         </div>
