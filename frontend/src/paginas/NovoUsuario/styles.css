@@ -1,7 +1,7 @@
 .conteudo .tabela{
     max-width: 1000px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 25px;
     background-color: #ffffff;
     box-shadow:0 0 100px rgb(0, 0, 0, 0.1);
 }
@@ -36,6 +36,7 @@
 }
 
 .conteudo .tabela .btn {
+    width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,15 +47,13 @@
   
 }
 .conteudo .tabela .btn:hover {
-    width: 80%;
+    width: 30%;
     border: none;
     color: #ffffff;
     transform: scale(1.01);
     transition: .2s;
 }
 
-.conteudo .tabela .form{
-    padding: 30px;
-}
+
 
 
