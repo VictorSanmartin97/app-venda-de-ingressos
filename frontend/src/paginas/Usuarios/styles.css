@@ -1,8 +1,8 @@
 .conteudo .tabela{
     max-width: 1000px;
     margin: 0 auto;
-    padding: 100px;
-    background-color: #800101;
+    padding: 25px;
+    background-color: #ffffff;
     box-shadow:0 0 100px rgb(0, 0, 0, 0.1);
 }
 
