@@ -67,7 +67,7 @@ export default function Dashboard(){
                             <tr>
                             <th scope="row">1</th>
                             <td>Balada Havaiana</td>
-                            <td>29/05/2020</td>
+                            <td>05/06/2020</td>
                             <td>23:59h</td>
                             <td><FontAwesomeIcon icon="trash-alt"/></td>
                             <td><FontAwesomeIcon icon="user-edit"/></td>
@@ -75,7 +75,7 @@ export default function Dashboard(){
                             <tr>
                             <th scope="row">2</th>
                             <td>La Casa de Tendel</td>
-                            <td>30/05/2020</td>
+                            <td>06/06/2020</td>
                             <td>23:59h</td>
                             <td><FontAwesomeIcon icon="trash-alt"/></td>
                             <td><FontAwesomeIcon icon="user-edit"/></td>
@@ -119,7 +119,7 @@ export default function Dashboard(){
                             <tr>
                             <th scope="row">1</th>
                             <td>Balada Anos 90</td>
-                            <td>12/06/2020</td>
+                            <td>25/05/2020</td>
                             <td>23:59h</td>
                             <td><FontAwesomeIcon icon="trash-alt"/></td>
                             <td><FontAwesomeIcon icon="user-edit"/></td>
@@ -127,7 +127,7 @@ export default function Dashboard(){
                             <tr>
                             <th scope="row">2</th>
                             <td>Neon Party</td>
-                            <td>13/06/2020</td>
+                            <td>26/05/2020</td>
                             <td>23:59h</td>
                             <td><FontAwesomeIcon icon="trash-alt"/></td>
                             <td><FontAwesomeIcon icon="user-edit"/></td>

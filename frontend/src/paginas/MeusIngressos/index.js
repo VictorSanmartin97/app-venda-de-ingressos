@@ -49,8 +49,9 @@ export default function Dashboard(){
                 </header>
                 <div class="conteudo">
                 <div className="box-meus-ingressos">
-                    <h1><FontAwesomeIcon icon="user"/> Ingressos Cadastrados</h1>
-                    
+                    <h1><FontAwesomeIcon icon="user"/> Meus Ingressos </h1>
+                    <br></br>
+                    <h2>Evento: Balada Havaiana	- 05/06/2020 </h2>
                     <table className="table table-striped">
                         <thead>
                             <tr>
@@ -100,6 +101,42 @@ export default function Dashboard(){
                             <td><FontAwesomeIcon icon="trash-alt"/></td>
                             <td><FontAwesomeIcon icon="user-edit"/></td>
                             </tr>
+                        </tbody>
+                    </table>
+                    <h2>Evento: La Casa de Tendel - 06/06/2020 </h2>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Setor</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Universitário</td>
+                            <td>Pista</td>
+                            <td>R$15,00</td>
+                            <td>250</td>
+                            <td><FontAwesomeIcon icon="trash-alt"/></td>
+                            <td><FontAwesomeIcon icon="user-edit"/></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>1º Lote</td>
+                            <td>Pista</td>
+                            <td>R$20,00</td>
+                            <td>450</td>
+                            <td><FontAwesomeIcon icon="trash-alt"/></td>
+                            <td><FontAwesomeIcon icon="user-edit"/></td>
+                            </tr>
+                           
+                           
                         </tbody>
                     </table>
 
