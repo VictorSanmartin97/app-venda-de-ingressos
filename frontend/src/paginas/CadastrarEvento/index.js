@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, useState } from 'react';
+import { Link , useHistory} from 'react-router-dom';
+import api from '../../services/api';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -8,52 +9,36 @@ import './styles.css';
 library.add(fas);
     
 
-class CadastraEvento extends Component {
-    state =  {
-      selectedFile: null,
-      imagePreviewUrl: null
-    };
-   
-    fileChangedHandler = event => {
-      this.setState({
-        selectedFile: event.target.files[0]
-      })
-   
-      let reader = new FileReader();
-       
-      reader.onloadend = () => {
-        this.setState({
-          imagePreviewUrl: reader.result
-        });
-      }
-   
-      reader.readAsDataURL(event.target.files[0])
-   
-    }
-   /*PODE SER USADO PARA O BACK-END*/
-   /* submit = () => {
- 
-        var fd = new FormData();
-     
-        fd.append('file', this.state.selectedFile);
-     
-        var request = new XMLHttpRequest();
-     
-        request.onreadystatechange = function() {
-          if (this.readyState === 4 &amp;&amp; this.status === 200) {
-            alert('Uploaded!');
-          }
+export default function CadastraEvento (){    
+
+    const [nome_evento, setNome_evento] = useState('');
+    const [descricao_evento, setDescricao_evento] = useState('');
+    const [tipo_evento, setTipo_evento] = useState('');   
+    const [hora_inicio, setHora_inicio] = useState('');   
+
+    const history = useHistory('');
+
+    async function handlerCreateEvent (e){
+        e.preventDefault();
+
+        const data = {
+            nome_evento,
+            descricao_evento,
+            tipo_evento,
+            hora_inicio,
         };
-        request.open("POST", "https://us-central1-tutorial-e6ea7.cloudfunctions.net/fileUpload", true);
-        request.send(fd);
-      }*/
 
+        try{
+            await api.post('evento', data);
 
-/*export default function Dashboard()*/ render () {
-    let $imagePreview = (<div className="previewText image-container">A imagem selecionada aparecerá aqui.</div>);
-    if (this.state.imagePreviewUrl) {
-      $imagePreview = (<div className="image-container" ><img src={this.state.imagePreviewUrl} alt="icon" width="400" /> </div>);
+            alert("Evento cadastrado com sucesso!");
+
+            history.push('/dashboard');
+        } catch (err){
+            alert("Não deu certo, tente novamente");
+        }
     }
+
     return (
         <div className="dashboard">
             <sidebar>
@@ -63,7 +48,7 @@ class CadastraEvento extends Component {
                 <div className="menu">
                     <ul>
                         <li>
-                         <Link to="/dashboard"> <FontAwesomeIcon icon="cog"/> Dashboard </Link>
+                        <Link to="/dashboard"> <FontAwesomeIcon icon="cog"/> Dashboard </Link>
                         </li>
                         <li>
                             <Link to="/cadastrarevento"> <FontAwesomeIcon icon="external-link-square-alt"/> Cadastrar Evento </Link>
@@ -95,41 +80,42 @@ class CadastraEvento extends Component {
                 </header>
                 <div class="conteudo">
                     <div className="box-evento">
-                        <form>
+                        <form onSubmit={handlerCreateEvent}>
                             <div className="cadastro">
                                 <div className="box-cadastro">
                                 <h1><FontAwesomeIcon icon="external-link-square-alt"/> Cadastrando seu Evento</h1>
                                 <p>Prencha as informações do seu ingresso.</p>
-                                        <input type="text" placeholder="Nome do Evento" className="nomeEvento"/>
-                                        <textarea rows="5" placeholder="Descrição do Evento" className="descEvento"/>
-                                        <select>
-                                            <option value="18Anos"> Maiores de 18 Anos </option>
-                                            <option value="16Anos"> Maiores de 16 Anos </option>                                     
+                                        <input type="text" placeholder="Nome do Evento"
+                                            className="nomeEvento"
+                                            value={nome_evento}
+                                            onChange={e => setNome_evento(e.target.value)}
+                                            />
+                                        <textarea rows="5" placeholder="Descrição do Evento" 
+                                            className="descEvento"
+                                            value={descricao_evento}
+                                            onChange={e => setDescricao_evento(e.target.value)}
+                                        />
+                                        <select value={tipo_evento} onChange={e => setTipo_evento(e.target.value)}>
+                                            <option value=""> Selecione o tipo do evento </option>
+                                            <option value="Show"> Show </option>
+                                            <option value="Aniversário"> Aniversário </option>                                     
                                         </select>
-                                        <input type="text" placeholder="Hora de Inicio" className="hrInicioEvento"/>
+                                        <input type="text" placeholder="Hora de Inicio" 
+                                            className="hrInicioEvento"
+                                            value={hora_inicio}
+                                            onChange={e => setHora_inicio(e.target.value)}/>
                                 </div>
-                                <div className="box-img">
-                                
-                                    { $imagePreview }
-                                    <input type="file" name="avatar" onChange={this.fileChangedHandler} />
-                                    {/* <button type="button" onClick={this.submit} > Upload </button>*/}
-                                    <br/>
-                                    <br/>
-                                    <p>OBS: pensar numa forma de como controlar o ingresso por evento</p>
+                                <div className="box-img">                                
+                                <div className="previewText image-container"></div>                             
+                                    
                                 </div>
                             </div>
                             <button type="submit" className="btn">Cadastrar Evento</button> 
                         </form>       
                     </div>  
-                     
+                    
                 </div>
             </main>
         </div>
-
-
-
-
     );
-
-}}
-export default CadastraEvento;
+}

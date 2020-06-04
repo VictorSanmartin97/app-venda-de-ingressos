@@ -1,17 +1,53 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import api from '../../services/api';
 import logoImg from '../../imagens/logo-branco.png';
 import DatePicker from 'react-datepicker';
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import pt from 'date-fns/locale/pt-BR';
 import 'react-datepicker/dist/react-datepicker.css'
 import './styles.css';
 library.add(fas);
 
+registerLocale('pt-BR', pt);
 export default function Dashboard(){
-    const [selectDateIn, setSelectDateIn] = useState(new Date());
-    const [selectDateOut, setSelectDateOut] = useState(new Date());
+    
+    const [quantidade, setQuantidade] = useState('');
+    const [nome_ingresso, setNome_ingresso] = useState('');
+    const [valor_ingresso, setValor_ingresso] = useState('');
+    const [setor_ingresso, setSetor_ingresso] = useState('');   
+    const [data_iniciovendas, setData_iniciovendas] = useState(new Date());
+    const [data_fimvendas, setData_fimvendas] = useState(new Date());
+    
+
+    const history = useHistory('');
+    
+    async function handlerCreateTicket(e){
+        e.preventDefault();
+
+        const data = {
+            nome_ingresso,
+            valor_ingresso,
+            setor_ingresso,
+            quantidade,
+            data_iniciovendas,
+            data_fimvendas,
+        };
+
+        try{
+            await api.post('ingresso', data);
+
+            alert("Ingresso cadastrado com sucesso!");
+
+            history.push('/dashboard');
+        } catch (err){
+            alert("Não deu certo, tente novamente");
+        }
+    }
+    
     return (
         <div className="dashboard">
             <sidebar>
@@ -55,20 +91,37 @@ export default function Dashboard(){
                     <div className="box">
                         <h1><FontAwesomeIcon icon="external-link-square-alt"/> Cadastrando seu Ingresso</h1>
                         <p>Prencha as informações do seu ingresso.</p>
-                         <form>
+                         <form onSubmit={handlerCreateTicket}>
                             <div className="input-grupo">
-                                <input type="text" placeholder="Nome do Ingresso" className="nomeIngresso" />
-                                <input type="text" placeholder="Quantidade" className="qtd"/>
-                                <input type="text" placeholder="Preço R$" className="preco"/>
+                                <input type="text" 
+                                    placeholder="Nome do Ingresso" 
+                                    className="nomeIngresso"
+                                    value={nome_ingresso}
+                                    onChange={e => setNome_ingresso(e.target.value)} />
+                                <input type="text" 
+                                    placeholder="Quantidade" 
+                                    className="qtd"
+                                    value={quantidade}
+                                    onChange={e => setQuantidade(e.target.value)} />
+                                <input type="text" 
+                                    placeholder="Preço R$" 
+                                    className="preco"
+                                    value={valor_ingresso}
+                                    onChange={e => setValor_ingresso(e.target.value)} />
                             </div>
-                                <input type="text" placeholder="Setor do Ingresso" className="setorIngresso"/>
+                                <input type="text" 
+                                    placeholder="Setor do Ingresso" 
+                                    className="setorIngresso"
+                                    value={setor_ingresso}
+                                    onChange={e => setSetor_ingresso(e.target.value)} />
                                 
                                 <div className="box-calendario">
                                         <div className="calendario-inicio">
                                             <p>Inicio das Vendas:</p>
                                             <DatePicker
-                                            selected={selectDateIn}
-                                            onChange={date => setSelectDateIn(date)}
+                                            selected={data_iniciovendas}
+                                            locale={pt}
+                                            onChange={date => setData_iniciovendas(date)}
                                             showTimeSelect
                                             timeFormat="HH:mm"
                                             timeIntervals={15}
@@ -79,8 +132,9 @@ export default function Dashboard(){
                                         <div className="calendario-fim">
                                             <p>Fim das Vendas:</p>
                                             <DatePicker 
-                                            selected={selectDateOut}
-                                            onChange={date => setSelectDateOut(date)}
+                                            selected={data_fimvendas}
+                                            locale={pt}
+                                            onChange={date => setData_fimvendas(date)}
                                             showTimeSelect
                                             timeFormat="HH:mm"
                                             timeIntervals={15}
@@ -90,8 +144,7 @@ export default function Dashboard(){
                                         </div>   
                                 </div>
                                 <button type="submit" className="btn">Cadastrar Ingresso</button>
-                        </form>
-                         
+                        </form>                         
                     </div>      
                 </div>
             </main>
