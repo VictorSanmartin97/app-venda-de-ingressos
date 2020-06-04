@@ -1,7 +1,7 @@
 .conteudo .tabela{
     max-width: 1000px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 25px;
     background-color: #ffffff;
     box-shadow:0 0 100px rgb(0, 0, 0, 0.1);
 }
@@ -18,7 +18,7 @@
     color: #828282;
 }
 
-.conteudo .tabela  table {
+.conteudo .tabela  input {
     margin-bottom: 10px;
     margin-top: 10px;
     border: none;
@@ -36,17 +36,24 @@
 }
 
 .conteudo .tabela .btn {
-    width: 100%;
-    max-width: 350px;
-    height: 50px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #00DF89;
     border: none;
     color: #ffffff;
+ 
   
 }
 .conteudo .tabela .btn:hover {
+    width: 30%;
     border: none;
     color: #ffffff;
     transform: scale(1.01);
     transition: .2s;
 }
+
+
+
+

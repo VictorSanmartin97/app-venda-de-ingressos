@@ -52,59 +52,26 @@ export default function Dashboard(){
                 <div className="tabela">
                 <div className="topo">
                 <div className="esq">
-                <h1><FontAwesomeIcon icon="user"/>Cadastrando Usuário</h1>
+                <h1><FontAwesomeIcon icon="user"/> Cadastrando Usuário</h1>
                 <p>Prencha as informações do seu novo usuário.</p>
                 </div>
-                <button type="submit" className="btn">Voltar</button>
+                
+                <Link className="btn" to="/usuarios">Voltar</Link>
+                <button type="submit" className="btn">Cadastrar</button>
+                
                 </div>
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Administrador</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Gustavo</td>
-                            <td>gustavo@baladapub.com</td>
-                            <td>Não</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Murilo</td>
-                            <td>murilo@baladapub.com</td>
-                            <td>Sim</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Victor</td>
-                            <td>victor@baladapub.com</td>
-                            <td>Não</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">4</th>
-                            <td>Willian</td>
-                            <td>willian@baladapub.com</td>
-                            <td>Sim</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
+                
+                    <div className="form">
+                    <form>
+                    <input type="text" placeholder="Nome" className="nomeEvento"/>
+                    <input type="text" placeholder="E-mail" className="nomeEvento"/>  
+                    <input type="text" placeholder="Usuário" className="nomeEvento"/>  
+                    <input type="text" placeholder="Senha" className="nomeEvento"/>  
+                    </form>
+                    <p> Colocar checkbox para selecionar quando for administrador </p>
+                    </div>  
+                   
+                </div> 
                 </div>
             </main>
         </div>

@@ -50,10 +50,10 @@ export default function Dashboard(){
                 </header>
                 <div className="conteudo">
                 <div className="tabela">
-                <div className="topo">
-                <h1><FontAwesomeIcon icon="user"/> Usuários Cadastrados</h1>
-                <button type="submit" className="btn">Novo Usuário</button>
-                </div>
+                    <div className="topo">
+                    <h1><FontAwesomeIcon icon="user"/> Usuários Cadastrados</h1>
+                    <Link className="btn" to="/novousuarios">Novo Usuário</Link>
+                    </div>
                     <table className="table table-striped">
                         <thead>
                             <tr>
