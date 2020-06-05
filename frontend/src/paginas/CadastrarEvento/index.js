@@ -82,7 +82,7 @@ export default function CadastraEvento (){
                     <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
-                <div class="conteudo">
+                <div className="conteudo">
                     <div className="box-evento">
                         <form onSubmit={handlerCreateEvent}>
                             <div className="cadastro">
@@ -102,7 +102,9 @@ export default function CadastraEvento (){
                                         <select value={tipo_evento} onChange={e => setTipo_evento(e.target.value)}>
                                             <option value=""> Selecione o tipo do evento </option>
                                             <option value="Show"> Show </option>
-                                            <option value="Aniversário"> Aniversário </option>                                     
+                                            <option value="Balada Havaiana"> Balada Havaiana </option>                                     
+                                            <option value="Balada Anos 90"> Balada Anos 90 </option>
+                                            <option value="FunkNejo"> FunkNejo </option>                                     
                                         </select>
                                         <div className="box-calendario">
                                             <div className="calendario-inicio">
@@ -115,7 +117,7 @@ export default function CadastraEvento (){
                                                 timeFormat="HH:mm"
                                                 timeIntervals={15}
                                                 timeCaption="time"
-                                                dateFormat="dd-MM-yyyy hh:mm:ss a"
+                                                dateFormat="dd-MM-yyyy hh:mm:ss"
                                                 />
                                             </div>
                                         </div>

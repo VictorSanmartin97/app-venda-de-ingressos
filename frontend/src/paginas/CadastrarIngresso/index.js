@@ -42,7 +42,8 @@ export default function Dashboard(){
 
             alert("Ingresso cadastrado com sucesso!");
 
-            history.push('/dashboard');
+            history.push('/dashboard');            
+           
         } catch (err){
             alert("Não deu certo, tente novamente");
         }
@@ -126,7 +127,7 @@ export default function Dashboard(){
                                             timeFormat="HH:mm"
                                             timeIntervals={15}
                                             timeCaption="time"
-                                            dateFormat="dd-MM-yyyy hh:mm:ss a"
+                                            dateFormat="dd-MM-yyyy hh:mm:ss"
                                             />
                                         </div>
                                         <div className="calendario-fim">
@@ -139,7 +140,7 @@ export default function Dashboard(){
                                             timeFormat="HH:mm"
                                             timeIntervals={15}
                                             timeCaption="time"
-                                            dateFormat="dd-MM-yyyy hh:mm:ss a"
+                                            dateFormat="dd-MM-yyyy hh:mm:ss"
                                             />
                                         </div>   
                                 </div>

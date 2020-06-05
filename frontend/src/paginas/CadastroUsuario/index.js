@@ -55,9 +55,9 @@ export default function CadastroUsuario(){
                                     value={login_usuario} 
                                     onChange={e => setLogin_usuario(e.target.value)}/>
                                 <input type="password" 
-                                    value={senha_usuario} 
                                     className="senha" 
                                     placeholder="Digite sua senha" 
+                                    value={senha_usuario} 
                                     onChange={e => setSenha_usuario(e.target.value)}/>                               
                             </div>
                                 <div className="radiobuttonAdmin">
