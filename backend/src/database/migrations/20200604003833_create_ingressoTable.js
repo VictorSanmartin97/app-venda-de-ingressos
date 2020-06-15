@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
     return knex.schema.createTable('ingresso', function (table) {
         table.increments('id_ingresso').primary();
@@ -9,8 +8,6 @@ exports.up = function(knex) {
         table.text('nome_ingresso').notNullable();
         table.date('data_iniciovendas').notNullable();
         table.date('data_fimvendas').notNullable();
-
-
 
         table.foreign('id_evento').references('id_evento').inTable('evento');
       });

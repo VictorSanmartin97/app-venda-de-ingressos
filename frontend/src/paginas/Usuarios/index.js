@@ -7,6 +7,7 @@ import logoImg from '../../imagens/logo-branco.png';
 import './styles.css';
 library.add(fas);
 
+
 export default function Dashboard(){
     return (
         <div className="dashboard">
@@ -47,75 +48,65 @@ export default function Dashboard(){
                     <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
-                <div class="conteudo">
-                    <div className="box-eventos">
-                    
-                    <h1><FontAwesomeIcon icon="flag-checkered"/> Relatórios</h1>
-                    <p>Escolha abaixo o evento desejado para obter informações sobre suas vendas.</p>
-                    
-                    <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Balada Havaiana</option>
-                        <option>Outros Evento</option>
-                        <option>Outros Evento</option>
-                        <option>Outros Evento</option>
-                        <option>Outros Evento</option>
-                        </select>
+                <div className="conteudo">
+                <div className="tabela">
+                    <div className="topo">
+                    <h1><FontAwesomeIcon icon="user"/> Usuários Cadastrados</h1>
+                    <Link className="btn" to="/novousuarios">Novo Usuário</Link>
                     </div>
-                    <h1> Você Selecionou o Evento:  Balada Havaiana</h1>
-                    <br></br>
                     <table className="table table-striped">
                         <thead>
                             <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Nome do Ingresso</th>
-                            <th scope="col">Colocados à Venda</th>
-                            <th scope="col">Vendidos</th>
-                            <th scope="col">Valor Unitário R$</th>
-                            <th scope="col">Total  R$</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Administrador</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                             <th scope="row">1</th>
-                            <td>Universitário</td>
-                            <td>100</td>
-                            <td>98</td>
-                            <td>R$ 15,00</td>
-                            <td>R$ 1.470,00</td>
+                            <td>Gustavo</td>
+                            <td>gustavo@baladapub.com</td>
+                            <td>Não</td>
+                            <td><FontAwesomeIcon icon="trash-alt"/></td>
+                            <td><FontAwesomeIcon icon="user-edit"/></td>
                             </tr>
                             <tr>
                             <th scope="row">2</th>
-                            <td>Pista 1º Lote</td>
-                            <td>150</td>
-                            <td>127</td>
-                            <td>R$ 20,00</td>
-                            <td>R$ 2.540,00</td>
+                            <td>Murilo</td>
+                            <td>murilo@baladapub.com</td>
+                            <td>Sim</td>
+                            <td><FontAwesomeIcon icon="trash-alt"/></td>
+                            <td><FontAwesomeIcon icon="user-edit"/></td>
                             </tr>
                             <tr>
                             <th scope="row">3</th>
-                            <td>Pista 2º Lote</td>
-                            <td>150</td>
-                            <td>35</td>
-                            <td>R$ 25,00</td>
-                            <td>R$ 875,00</td>
+                            <td>Victor</td>
+                            <td>victor@baladapub.com</td>
+                            <td>Não</td>
+                            <td><FontAwesomeIcon icon="trash-alt"/></td>
+                            <td><FontAwesomeIcon icon="user-edit"/></td>
                             </tr>
                             <tr>
                             <th scope="row">4</th>
-                            <td>Camarote </td>
-                            <td>50</td>
-                            <td>47</td>
-                            <td>R$ 40,00 </td>
-                            <td>R$ 1.880,00</td>
+                            <td>Willian</td>
+                            <td>willian@baladapub.com</td>
+                            <td>Sim</td>
+                            <td><FontAwesomeIcon icon="trash-alt"/></td>
+                            <td><FontAwesomeIcon icon="user-edit"/></td>
                             </tr>
                         </tbody>
                     </table>
-                    <br></br>
-                    <h1>Suas vendas tiveram um total de R$ 6.765,00</h1>
-                    </div>
+
+                </div>
                 </div>
             </main>
         </div>
+
+
 
 
     );
