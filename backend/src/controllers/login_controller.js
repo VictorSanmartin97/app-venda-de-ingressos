@@ -14,6 +14,7 @@ module.exports ={
     async login(request,response){
         var user  = request.body
         try {
+            console.log((await connection('usuario')));
             var userRecovered = await (await connection('usuario')).find(u => user.login === u.login_usuario)
                 if (user.senha  ===  userRecovered.senha_usuario){
                     const accessToken = generateAccessToken(user)
