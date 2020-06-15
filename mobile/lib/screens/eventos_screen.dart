@@ -47,7 +47,7 @@ class EventosScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Container(
-              padding: EdgeInsets.all(25),
+              padding: EdgeInsets.all(10),
               height: MediaQuery.of(context).size.height - 80,
               child: ListView.separated(
                   itemBuilder: (context, index) {
@@ -67,11 +67,11 @@ class EventosScreen extends StatelessWidget {
                               children: <Widget>[
                                 Container(
                                     padding: EdgeInsets.all(0),
-                                    height: 200,
+                                    height: 220,
                                     decoration: Utils.getBorderRadius(),
                                     child: FadeInImage.memoryNetwork(
                                       alignment: Alignment.topCenter,
-                                      height: 200,
+                                      height: 220,
                                       placeholder: kTransparentImage,
                                       image:
                                           'https://admin.eventos365.com.br/upload/event/8761/thumbnail_img.png',
@@ -93,7 +93,7 @@ class EventosScreen extends StatelessWidget {
                               ],
                             ),
                             Container(
-                              padding: EdgeInsets.all(15),
+                              padding: EdgeInsets.only(left:15, right: 15, bottom: 15, top: 10),
                               decoration: Utils.getBorderRadius(),
                               child: Row(
                                 mainAxisAlignment:
