@@ -33,6 +33,7 @@ routes.post('/login', login_controller.login);
 routes.get('/compra', compra_controller.index);
 routes.post('/compra', compra_controller.create);
 routes.delete('/compra/:id', compra_controller.delete);
+routes.get('/compra/:id', compra_controller.getByid);
 
 
 module.exports = routes;

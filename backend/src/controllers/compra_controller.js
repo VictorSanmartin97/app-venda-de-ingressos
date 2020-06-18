@@ -1,5 +1,7 @@
 const connection = require('../database/connection');
 const crypto = require('crypto');
+const { getByLogin } = require('./usuario_controller');
+const { report } = require('../routes');
 
 module.exports = {
     async index (request, response) {
@@ -27,5 +29,12 @@ module.exports = {
             return response.status(200).json("deleted");
         }
         return response.json(404).body("compra não encontrada");
+    },
+    async getByid(request, response) {
+       const comp = await (await connection("carrinho_compras").select("*")).find(compra=>compra.id_compra == request.params.id);
+       if(comp!= undefined){
+           return response.json(comp);
+       }
+       return response.status(400);
     }
 }
