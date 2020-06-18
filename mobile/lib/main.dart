@@ -1,5 +1,3 @@
-import 'package:dio/dio.dart';
-import 'package:engenharia_software/screens/eventos_screen.dart';
 import 'package:engenharia_software/screens/login.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        primaryColor: Color.fromRGBO(0, 223, 124, 1),
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -22,12 +21,4 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Future<void> getHttp() async {
-    try {
-      Response response = await Dio().get("http://10.0.0.101:3333/cliente");
-      print(response);
-    } catch (e) {
-      print(e);
-    }
-  }
 }
