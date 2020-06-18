@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -64,35 +65,7 @@ export default function MeusEventos(){
 
                 </header>
                 <div class="conteudo">
-                    {/* <div className="box-eventos">
                     
-                    <h1><FontAwesomeIcon icon="calendar-alt"/> Próximos Eventos</h1>
-                    
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nome do Evento</th>
-                            <th scope="col">Data do Evento</th>
-                            <th scope="col">Hora de Inicio</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Balada Havaiana</td>
-                            <td>05/06/2020</td>
-                            <td>23:59h</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                    </div>
-                    <br></br><br></br> */}
                     <div className="box-eventos-passados">
                     
                     <h1><FontAwesomeIcon icon="calendar-alt"/> Todos os Eventos</h1>

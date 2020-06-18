@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,19 +16,33 @@ registerLocale('pt-BR', pt);
 export default function Dashboard(){
     
     const [quantidade, setQuantidade] = useState('');
+    const [id_evento, setId_evento] = useState('');
     const [nome_ingresso, setNome_ingresso] = useState('');
     const [valor_ingresso, setValor_ingresso] = useState('');
     const [setor_ingresso, setSetor_ingresso] = useState('');   
     const [data_iniciovendas, setData_iniciovendas] = useState(new Date());
     const [data_fimvendas, setData_fimvendas] = useState(new Date());
-    
+    const [eventos, setEventos] = useState([]);
 
+    const user = localStorage.getItem('username');
     const history = useHistory('');
-    
+
+    useEffect(() => {
+        api.get('eventos', {
+            headers: {
+                Authorization: user,
+            }
+        }).then(response => {
+             setEventos(response.data);
+        })
+    }, [ ]);
+
+
     async function handlerCreateTicket(e){
         e.preventDefault();
 
         const data = {
+            id_evento,
             nome_ingresso,
             valor_ingresso,
             setor_ingresso,
@@ -115,6 +129,14 @@ export default function Dashboard(){
                                     className="setorIngresso"
                                     value={setor_ingresso}
                                     onChange={e => setSetor_ingresso(e.target.value)} />
+
+                                <select value={id_evento} onChange={e => setId_evento(e.target.value)}>
+                                        {eventos.map( evento => (
+                                        <>    
+                                            <option value={evento.id_evento}> {evento.nome_evento}</option>                                     
+                                        </>
+                                        ))}     
+                                        </select>
                                 
                                 <div className="box-calendario">
                                         <div className="calendario-inicio">
