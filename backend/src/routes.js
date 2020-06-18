@@ -6,6 +6,7 @@ const cliente_controller = require('./controllers/cliente_controller');
 const ingresso_controller = require('./controllers/ingresso_controller');
 const evento_controller = require('./controllers/evento_controller');
 const usuario_controller = require('./controllers/usuario_controller');
+const compra_controller = require('./controllers/compra_controller');
 
 const routes = express.Router();
 
@@ -28,6 +29,11 @@ routes.post('/usuario', usuario_controller.create);
 
 routes.get('/cliente', auth.authenticateToken , cliente_controller.index);//exemplo com midlleware
 routes.post('/login', login_controller.login);
+
+routes.get('/compra', compra_controller.index);
+routes.post('/compra', compra_controller.create);
+routes.delete('/compra/:id', compra_controller.delete);
+
 
 module.exports = routes;
 
