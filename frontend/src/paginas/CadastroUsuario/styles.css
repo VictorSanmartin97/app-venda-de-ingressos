@@ -1,0 +1,108 @@
+.dashboard .main-cadastro-user{
+    width: 100%;
+}
+
+.conteudo .box{
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow:0 0 100px rgb(0, 0, 0, 0.1);
+}
+
+.conteudo .box h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #828282;
+}
+
+.conteudo .box p{
+    font-size: 12px;
+    color: #828282;
+}
+
+.conteudo .box form {
+    width: 100%;
+    max-width: 1000px;
+
+}
+.conteudo .box form input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: solid 1px  #dcdce6;
+    font: 400 15px Roboto, sans-serif;
+    
+}
+
+/* .conteudo .box form .input-grupo{
+    display: flex;
+} */
+
+.conteudo .box form .input-grupo input + input {
+    margin-left: 10px;
+}
+
+
+.conteudo .box form .nomeUsuario {
+    width: 50%;
+}
+.conteudo .box form .senha {
+    width: 50%;
+}
+.conteudo .box form .radiobuttonAdmin {
+    display: flex;
+}
+.conteudo .box form .radiobutton {
+    width: 15px;
+    margin: 8px;
+}
+.conteudo .box form .isAdmin {
+    margin: 18px 0;
+}
+
+
+.conteudo .box .btn {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    background-color: #00DF89;
+    border: none;
+    color: #ffffff;
+  
+}
+
+.conteudo .box .btn:hover {
+    border: none;
+    color: #ffffff;
+    transform: scale(1.01);
+    transition: .2s;
+}
+
+.conteudo .box .box-calendario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  
+}
+
+.conteudo .box .box-calendario p {
+    margin-top: 20px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.conteudo .box .box-calendario .calendario-inicio{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudo .box .box-calendario .calendario-fim{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+}

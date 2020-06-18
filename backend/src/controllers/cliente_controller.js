@@ -5,7 +5,7 @@ module.exports = {
     
     async index (request, response) {
         const clientes = await connection('cliente').select('*');
-    
+
         console.log(clientes);
     
         return response.json(clientes);
@@ -23,5 +23,19 @@ module.exports = {
         
         
         return response.json({id});
+    },
+
+    async delete(request, response) {
+        const {id} = request.params;
+         
+        const cliente = await connection('clientes').where('id', id).first();
+
+        if(cliente.id != id){
+            return response.status(401).json({error: 'Operação não é permitida'});
+        }
+
+        await connection('cliente').where('id', id).delete();
+
+        return response.status(204).send();
     }
 };

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Projetos/App de Venda de Ingressos/backend/src/database/db.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="1856"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,16:maincarrinho_compras"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="carrinho_compras" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="101"/><column index="2" value="94"/><column index="3" value="110"/><column index="4" value="104"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">insert into ingressos (id_evento, quantidade, nome_ingresso, setor_ingresso, data_iniciovendas, data_fimvendas, valor_ingresso)
+VALUES (1, 250, &quot;VIP&quot;, &quot;Camarote&quot;, '2020-06-09','2020-06-20', 150.00);
+
+insert into ingressos (id_evento, quantidade, nome_ingresso, setor_ingresso, data_iniciovendas, data_fimvendas, valor_ingresso)
+VALUES (1, 250, &quot;Meia-entrada&quot;, &quot;Pista&quot;, '2020-06-09','2020-06-20', 50.00);
+
+insert into ingressos (id_evento, quantidade, nome_ingresso, setor_ingresso, data_iniciovendas, data_fimvendas, valor_ingresso)
+VALUES (1, 250, &quot;Inteira&quot;, &quot;Pista&quot;, '2020-06-09','2020-06-20', 100.00);
+
+insert into ingressos (id_evento, quantidade, nome_ingresso, setor_ingresso, data_iniciovendas, data_fimvendas, valor_ingresso)
+VALUES (2, 250, &quot;VIP&quot;, &quot;Camarote&quot;, '2020-06-09','2020-06-20', 150.00);
+
+insert into ingressos (id_evento, quantidade, nome_ingresso, setor_ingresso, data_iniciovendas, data_fimvendas, valor_ingresso)
+VALUES (2, 250, &quot;Meia-entrada&quot;, &quot;Pista&quot;, '2020-06-09','2020-06-20', 50.00);
+
+insert into ingressos (id_evento, quantidade, nome_ingresso, setor_ingresso, data_iniciovendas, data_fimvendas, valor_ingresso)
+VALUES (2, 250, &quot;Inteira&quot;, &quot;Pista&quot;, '2020-06-09','2020-06-20', 100.00);</sql><sql name="SQL 6">insert into evento (nome_evento, descricao_evento, tipo_evento)
+VALUES (&quot;Show de abertura da BaladaPub&quot;, &quot;Show que irá inaugurar a BaladaPub na cidade&quot;, &quot;Show&quot;);
+
+insert into evento (nome_evento, descricao_evento, tipo_evento)
+VALUES (&quot;Show do Gusttavo Lima&quot;, &quot;Show para lotar a BaladaPub&quot;, &quot;Show&quot;);</sql><sql name="SQL 7">SELECT * FROM evento</sql><sql name="SQL 8">SELECT * FROM ingressos</sql><sql name="SQL 9">select * FROM evento, ingressos where evento.id_evento = ingressos.id_evento</sql><current_tab id="3"/></tab_sql></sqlb_project>
