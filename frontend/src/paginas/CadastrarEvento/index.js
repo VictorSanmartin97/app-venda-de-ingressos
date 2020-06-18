@@ -10,6 +10,8 @@ import { registerLocale, setDefaultLocale } from  "react-datepicker";
 import pt from 'date-fns/locale/pt-BR';
 import 'react-datepicker/dist/react-datepicker.css'
 import './styles.css';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 library.add(fas);
     
 registerLocale('pt-BR', pt);
@@ -79,7 +81,7 @@ export default function CadastraEvento (){
             <main>
                 <header>
                     <Link to="/dashboard"> <FontAwesomeIcon icon="cog"/> Dashboard </Link>
-                    <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
+                    <Link to="/ onClick ={()=>console.log(cookies.remove('token',{ path :'/' }))}"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
                 <div className="conteudo">

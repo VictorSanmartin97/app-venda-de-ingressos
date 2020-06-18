@@ -7,6 +7,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import logoImg from '../../imagens/logo-branco.png';
 import api from '../../services/api';
 import './styles.css';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 library.add(fas);
 
 export default function MeusEventos(){
@@ -61,7 +63,7 @@ export default function MeusEventos(){
             <main>
                 <header>
                     <Link to="/dashboard"> <FontAwesomeIcon icon="cog"/> Dashboard </Link>
-                    <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
+                    <Link to="/" onClick ={()=>console.log(cookies.remove('token',{ path :'/' }))}> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
                 <div class="conteudo">

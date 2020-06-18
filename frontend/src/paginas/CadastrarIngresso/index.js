@@ -10,7 +10,9 @@ import { registerLocale, setDefaultLocale } from  "react-datepicker";
 import pt from 'date-fns/locale/pt-BR';
 import 'react-datepicker/dist/react-datepicker.css'
 import './styles.css';
+import Cookies from 'universal-cookie';
 library.add(fas);
+const cookies = new Cookies();
 
 registerLocale('pt-BR', pt);
 export default function Dashboard(){
@@ -99,7 +101,7 @@ export default function Dashboard(){
             <main>
                 <header>
                     <Link to="/dashboard"> <FontAwesomeIcon icon="cog"/> Dashboard </Link>
-                    <Link to="/"> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
+                    <Link to="/" onClick ={()=>console.log(cookies.remove('token',{ path :'/' }))}> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
                 <div className="conteudo">

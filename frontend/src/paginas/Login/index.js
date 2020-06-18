@@ -5,11 +5,13 @@ import logoImg from '../../imagens/logo-preto.png';
 import Cookies from 'universal-cookie';
 
 import api from '../../services/api';
+import { useHistory } from 'react-router-dom'
 
 const cookies = new Cookies();
 
 export default function Login(){
 
+    const history = useHistory();
     const [login, setLogin_usuario] = useState('');
     const [senha, setSenha_usuario] = useState('');
     const history = useHistory('');
@@ -62,8 +64,7 @@ export default function Login(){
                     </div>
                     
                     <button type="submit" className="btn"  > Login</button>
-                    {/* <Link to="/dashboard"> Passar para Dashboard (link de teste) </Link> */}
-                    <Link to="/cadastrarusuario"> Não possui cadastro? Clique aqui.</Link>
+                   
                   </form>
             </div>
         </div>
