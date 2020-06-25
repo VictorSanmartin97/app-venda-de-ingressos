@@ -109,7 +109,7 @@ class _LoginState extends State<Login> {
                                         loading = true;
                                       });
 
-                                      dynamic result = await new ApiService()
+                                      dynamic result = await ApiService()
                                           .post("login", {
                                         'login': _loginController.text,
                                         'senha': _senhaController.text

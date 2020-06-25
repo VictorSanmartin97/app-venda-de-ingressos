@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class ApiService {
-  final _baseUrl = "http://192.168.232.2:3333";
+  final _baseUrl = "http://10.0.0.101:3333";
 
   Future<dynamic> get(endpoint) async {
     try {
