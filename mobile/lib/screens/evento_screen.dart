@@ -2,7 +2,6 @@ import 'package:engenharia_software/screens/cartao_screen.dart';
 import 'package:engenharia_software/util/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:toast/toast.dart';
 
 class EventoScreen extends StatelessWidget {
   dynamic evento;
@@ -67,7 +66,7 @@ class EventoScreen extends StatelessWidget {
                             decoration:
                                 Utils.getBorderRadius(color: Colors.green[700]),
                             child: FlatButton(
-                                onPressed: () => showComprarIngresso(context),
+                                onPressed: () => showComprarIngresso(context, evento),
                                 child: Text("Comprar Ingresso",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -84,7 +83,7 @@ class EventoScreen extends StatelessWidget {
             )));
   }
 
-  void showComprarIngresso(context) {
+  void showComprarIngresso(context, evento) {
     showMaterialModalBottomSheet(
       isDismissible: false,
       context: context,
@@ -111,7 +110,7 @@ class EventoScreen extends StatelessWidget {
               color: Colors.green[700],
               onPressed: () async {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CartaoScreen()));
+                    MaterialPageRoute(builder: (context) => CartaoScreen(evento)));
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,

@@ -5,7 +5,7 @@ class MeusIngressos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: ApiService().get("eventos"),
+        future: ApiService().get("ingressos"),
         builder: (context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState.index == ConnectionState.none.index ||
               snapshot.connectionState.index == ConnectionState.waiting.index) {
@@ -13,6 +13,7 @@ class MeusIngressos extends StatelessWidget {
           } else {
             return Scaffold(
                 appBar: AppBar(
+                  iconTheme: IconThemeData(color: Colors.white),
                   elevation: 0,
                   backgroundColor: Color.fromRGBO(15, 15, 15, 1),
                   title: Text(
@@ -30,21 +31,38 @@ class MeusIngressos extends StatelessWidget {
                       itemCount: snapshot.data.length,
                       separatorBuilder: (context, index) {
                         return SizedBox(
-                          height: 50,
+                          height: 35,
                         );
                       },
                       itemBuilder: (context, index) {
                         return Column(
                           children: <Widget>[
-                            Image.asset(
-                              'assets/frame.png',
-                              height: 200,
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                    "${snapshot.data.elementAt(index)['nome_ingresso']} - ${snapshot.data.elementAt(index)['setor_ingresso']}",
+                                    textAlign: TextAlign.center,
+                                    maxLines: 3,
+                                    softWrap: true,
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 18)),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                    "Valor R\$: ${snapshot.data.elementAt(index)['valor_ingresso']}",
+                                    style: TextStyle(
+                                        color: Colors.green, fontSize: 18))
+                              ],
                             ),
                             SizedBox(
                               height: 10,
                             ),
-                            Text(
-                                "Show: ${snapshot.data.elementAt(index)['nome_evento']}", textAlign: TextAlign.center, style:TextStyle(color:Colors.white))
+                            Image.asset(
+                              'assets/frame.png',
+                              height: 200,
+                            ),
                           ],
                         );
                       }),

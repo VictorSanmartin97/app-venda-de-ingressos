@@ -52,15 +52,21 @@ class EventosScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Color.fromRGBO(15, 15, 15, 1),
-          
           title: Text(
             "Próximo eventos",
             style: TextStyle(color: Colors.white, fontSize: 22),
             textAlign: TextAlign.start,
           ),
-          leading: IconButton(icon: Icon(OMIcons.receipt, color: Colors.white,), onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>MeusIngressos()));
-          },),
+          leading: IconButton(
+            icon: Icon(
+              OMIcons.receipt,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MeusIngressos()));
+            },
+          ),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
@@ -96,7 +102,10 @@ class EventosScreen extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => EventoScreen({
-                                              'url': nextEvents.elementAt(index)['url'],
+                                              'id': snapshot.data.elementAt(
+                                                  index)['id_evento'],
+                                              'url': nextEvents
+                                                  .elementAt(index)['url'],
                                               'nome': snapshot.data.elementAt(
                                                   index)['nome_evento'],
                                               'dia': snapshot.data

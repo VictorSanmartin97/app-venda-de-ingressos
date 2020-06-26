@@ -15,8 +15,7 @@ class ApiService {
   Future<dynamic> post(endpoint, params) async {
     try {
       Response response = await Dio().post("$_baseUrl/$endpoint", data: params);
-
-
+      
       return response.data;
     } catch (e) {
       print(e);
