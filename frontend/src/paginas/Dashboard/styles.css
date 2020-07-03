@@ -24,7 +24,7 @@
 }
 
 .central .box-prox-evento h2 {
-    margin: 0;
+    margin: 1rem;
     padding: 0;
     font-size: 17px;
     color: #4d4c4c;
@@ -70,7 +70,7 @@
 
 
 .central .box-ingressos h2 {
-    margin: 0;
+    margin: 1rem;
     padding: 0;
     font-size: 17px;
     color: #4d4c4c;

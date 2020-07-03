@@ -1,10 +1,11 @@
-import React, { useState }from 'react';
+import React, { useState, useEffect}from 'react';
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import logoImg from '../../imagens/logo-branco.png';
 import './styles.css';
+import api from '../../services/api';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 library.add(fas);
@@ -12,6 +13,29 @@ library.add(fas);
 export default function Dashboard(){
     
     const user = localStorage.getItem('username');
+
+    const [ingressos, setIngressos] = useState([]);
+    const [eventos, setEventos] = useState([]);
+
+    useEffect(() => {
+        api.get('eventos', {
+            headers: {
+                Authorization: user,
+            }
+        }).then(response => {
+            setEventos(response.data);
+        })
+    }, []);
+
+    useEffect(() => {
+        api.get('ingressos', {
+            headers: {
+                Authorization: user,
+            }
+        }).then(response => {
+            setIngressos(response.data);
+        })
+    }, []);
     
     return (
         <div className="dashboard">
@@ -52,46 +76,63 @@ export default function Dashboard(){
                     <Link to="/" onClick ={()=>console.log(cookies.remove('token',{ path :'/' }))}> <FontAwesomeIcon icon="sign-out-alt"/> Logout </Link>
 
                 </header>
-                <div class="conteudo">
+                <div className="conteudo">
                     <div className="central">
                         <div className="box-prox-evento">
-                            <h1><FontAwesomeIcon icon="calendar-alt"/> Próximo Evento</h1>
-                            <br></br>
-                            <h2> Balada Hawaiana</h2>
-                            <p>Abaixo número de ingressos já vendidos.</p>
-                                <ul class="list-group">
+                            <h1><FontAwesomeIcon icon="calendar-alt"/> Próximos Eventos</h1>
+                            <br></br>                            
+                            <p>Abaixo número de ingressos disponíveis para a venda.</p>
+                            {eventos.map(evento => (
+                            
+                            <div>
+                                <h2> Evento: {evento.nome_evento} - {reverseDate(evento.hora_inicio.substring(0, 10))} </h2>
+                                {ingressos.map(ingresso => function () {
+                                    if(ingresso.id_evento == evento.id_evento){
+                                    return(<ul className="list-group">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Universitário
-                                        <span class="badge badge-primary badge-pill">97</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Pista 1º Lote
-                                        <span class="badge badge-primary badge-pill">28</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Pista 2º Lote
-                                        <span class="badge badge-primary badge-pill">0</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Camarote
-                                        <span class="badge badge-primary badge-pill">17</span>
-                                    </li>
-                                </ul>
+                                        {ingresso.nome_ingresso}
+                                        <span className="badge badge-primary badge-pill">{ingresso.quantidade}</span>
+                                    </li>                                    
+                                </ul>);
+                                    }
+                                }())}
+                            </div>
+                            ))}   
+                                
 
                         </div>
                         <div className="box-ingressos">
                             <h1><FontAwesomeIcon icon="external-link-square-alt"/> Seus ingressos mais vendidos.</h1>
                             <br></br>
-                            <p>OBS:Criar uma listagem com os ingressos mais vendidos, pegando todos os vendidos em todos os eventos fazer tipo um ranking do mais vendido.</p>
+                            {eventos.map(evento => (
+                            
+                            <div>
+                                <h2 className=""> Evento: {evento.nome_evento} - {reverseDate(evento.hora_inicio.substring(0, 10))} </h2>
+                                {ingressos.map(ingresso => function () {
+                                    if(ingresso.id_evento == evento.id_evento){
+                                    return(<ul className="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {ingresso.nome_ingresso}
+                                        <span className="badge badge-primary badge-pill">{(ingresso.quantidade%3)*2}</span>
+                                    </li>                                    
+                                </ul>);
+                                    }
+                                }())}
+                            </div>
+                            ))} 
                         </div>
                     </div>
                 </div>
             </main>
         </div>
-
-
-
-
     );
 
+}
+
+function reverseDate(date) {
+    var data = date.split("-");
+    var inverseDate = data.reverse();
+    var dataFinal = inverseDate.join("/");
+
+    return dataFinal;
 }

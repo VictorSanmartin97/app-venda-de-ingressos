@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import logoImg from '../../imagens/logo-branco.png';
+import api from '../../services/api';
 import './styles.css';
 library.add(fas);
 
 
 export default function Dashboard(){
+    
+    const user = localStorage.getItem('username');
+    const [usuarios, setUsuarios] = useState([]);
+    
+    
+    useEffect(() => {
+        api.get('usuarios', {
+            headers: {
+                Authorization: user,
+            }
+        }).then(response => {
+            setUsuarios(response.data);
+        })
+    }, []);
+
     return (
         <div className="dashboard">
             <sidebar>
@@ -58,46 +74,20 @@ export default function Dashboard(){
                         <thead>
                             <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Administrador</th>
+                            <th scope="col">Usuário</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Gustavo</td>
-                            <td>gustavo@baladapub.com</td>
-                            <td>Não</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Murilo</td>
-                            <td>murilo@baladapub.com</td>
-                            <td>Sim</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Victor</td>
-                            <td>victor@baladapub.com</td>
-                            <td>Não</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">4</th>
-                            <td>Willian</td>
-                            <td>willian@baladapub.com</td>
-                            <td>Sim</td>
-                            <td><FontAwesomeIcon icon="trash-alt"/></td>
-                            <td><FontAwesomeIcon icon="user-edit"/></td>
-                            </tr>
+                            {usuarios.map(user => {
+                                return(<tr>
+                                <th scope="row">{user.id_usuario}</th>
+                                <td>{user.login_usuario}</td>                           
+                                <td><FontAwesomeIcon icon="trash-alt"/></td>
+                                <td><FontAwesomeIcon icon="user-edit"/></td>
+                                </tr>);
+                            })}
                         </tbody>
                     </table>
 

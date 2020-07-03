@@ -5,7 +5,6 @@ import logoImg from '../../imagens/logo-preto.png';
 import Cookies from 'universal-cookie';
 
 import api from '../../services/api';
-import { useHistory } from 'react-router-dom'
 
 const cookies = new Cookies();
 
@@ -14,7 +13,6 @@ export default function Login(){
     const history = useHistory();
     const [login, setLogin_usuario] = useState('');
     const [senha, setSenha_usuario] = useState('');
-    const history = useHistory('');
   
     async function handleLogin (e){
       e.preventDefault();
